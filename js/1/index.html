@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body onkeydown="keydown(event)">
+  <main class="main">
+    <button class="btn" onclick="play('kick')">kick</button>
+    <button class="btn" onclick="play('openhat')">openhat</button>
+    <audio id="kick" src="./kick.wav"></audio>
+    <audio id="openhat" src="./openhat.wav"></audio>
+  </main>
+  <script>
+    function play(id) {
+      const audio = document.getElementById(id)
+      audio.currentTime = 0
+      audio.play();
+    }
+    function keydown(event) {
+      const key = event.key //d
+      const obj = {
+        'a': 'kick',
+        's': 'openhat'
+      }
+      if (obj[key]) {
+        play(obj[key])
+      }
+    }
+  </script>
+</body>
+
+</html>
